@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/carledwin/sistema-ponto-eletronico-api.svg?branch=master)](https://travis-ci.org/carledwin/sistema-ponto-eletronico-api)
+
 # sistema-ponto-eletronico-api
 Sistema de Ponto Eletrônico API
 
