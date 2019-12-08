@@ -39,3 +39,18 @@ GET - http://localhost:8080/empresas/cnpj/06028939000140
 Headers:
 Authorization : Basic dXNlcjo0MGEwMTliNi1jN2RjLTQzNTktYmY2YS1jOWY3M2E5YzJhNTY=
 
+-------------- Atualizacao de Funcionario
+PUT - http://localhost:8080/funcionarios/2
+
+Headers:
+Content-Type : application/json
+Authorization : Basic dXNlcjo0MGEwMTliNi1jN2RjLTQzNTktYmY2YS1jOWY3M2E5YzJhNTY=
+
+Body:
+{
+"nome":"Paulo Cezar Alencar",
+"email":"paulo.cezar@carledwinti.com",
+"qtdHorasTrabalhoDia":"9.57",
+"senha":"Senha@1234",
+"valorHora":"72"
+}
