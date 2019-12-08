@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface EmpresaService {
 
     Optional<Empresa> findByCnpj(String cnpj);
-    Empresa save(Empresa empresa);
+    Optional<Empresa> save(Empresa empresa);
 }

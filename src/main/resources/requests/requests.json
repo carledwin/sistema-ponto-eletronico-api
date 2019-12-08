@@ -1,0 +1,15 @@
+POST - http://localhost:8080/cadastro-pj
+
+Headers:
+Content-Type : application/json
+Authorization : Basic dXNlcjo0MGEwMTliNi1jN2RjLTQzNTktYmY2YS1jOWY3M2E5YzJhNTY=
+
+Body:
+{
+"nome":"Carl Edwin",
+"email":"carledwin@email.com",
+"cpf":"83069968015",
+"senha":"Senha@123",
+"razaoSocial":"Carl Edwin TI",
+"cnpj":"06028939000140"
+}

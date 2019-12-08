@@ -14,6 +14,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
@@ -36,28 +38,28 @@ public class FuncionarioServiceTest {
     @Test
     public void saveFuncionarioTest(){
 
-        Funcionario funcionario = funcionarioRepository.save(new Funcionario());
-        Assert.assertNotNull(funcionario);
+        Optional<Funcionario> optionalFuncionario = funcionarioService.save(new Funcionario());
+        Assert.assertNotNull(optionalFuncionario.get());
     }
 
     @Test
     public void findFuncionarioByIdTest(){
 
-        Funcionario funcionario = funcionarioRepository.findOne(1l);
-        Assert.assertNotNull(funcionario);
+        Optional<Funcionario> optionalFuncionario = funcionarioService.findById(1l);
+        Assert.assertNotNull(optionalFuncionario.get());
     }
 
     @Test
     public void findFuncionarioByEmail(){
 
-        Funcionario funcionario = funcionarioRepository.findByEmail("funcionario.test@carledwinti.com");
-        Assert.assertNotNull(funcionario);
+        Optional<Funcionario> optionalFuncionario = funcionarioService.findByEmail("funcionario.test@carledwinti.com");
+        Assert.assertNotNull(optionalFuncionario.get());
     }
 
     @Test
     public void findFuncionarioByCpf(){
 
-        Funcionario funcionario = funcionarioRepository.findByCpf("12345678901");
-        Assert.assertNotNull(funcionario);
+        Optional<Funcionario> optionalFuncionario = funcionarioService.findByCpf("12345678901");
+        Assert.assertNotNull(optionalFuncionario);
     }
 }

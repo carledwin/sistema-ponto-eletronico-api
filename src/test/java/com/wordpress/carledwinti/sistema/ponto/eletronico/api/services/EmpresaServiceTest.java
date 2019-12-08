@@ -38,14 +38,14 @@ public class EmpresaServiceTest {
     @Test
     public void findEmpresaByCnpj(){
 
-       Empresa empresa = empresaRepository.findByCnpj(CNPJ);
-       Assert.assertNotNull(empresa);
+       Optional<Empresa> optionalEmpresa = empresaService.findByCnpj(CNPJ);
+       Assert.assertNotNull(optionalEmpresa.get());
     }
 
     @Test
     public void saveEmpresa(){
 
-        Empresa empresa = empresaRepository.save(new Empresa());
-        Assert.assertNotNull(empresa);
+        Optional<Empresa> optionalEmpresa = empresaService.save(new Empresa());
+        Assert.assertNotNull(optionalEmpresa.get());
     }
 }

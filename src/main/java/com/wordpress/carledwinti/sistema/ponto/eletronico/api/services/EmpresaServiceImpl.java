@@ -24,8 +24,8 @@ public class EmpresaServiceImpl implements EmpresaService {
     }
 
     @Override
-    public Empresa save(Empresa empresa) {
+    public Optional<Empresa> save(Empresa empresa) {
         LOG.info("Save empresa? {}", empresa);
-        return empresaRepository.save(empresa);
+        return Optional.ofNullable(empresaRepository.save(empresa));
     }
 }

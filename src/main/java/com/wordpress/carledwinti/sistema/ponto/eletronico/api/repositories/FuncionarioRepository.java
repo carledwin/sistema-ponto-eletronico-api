@@ -4,6 +4,8 @@ import com.wordpress.carledwinti.sistema.ponto.eletronico.api.entities.Funcionar
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Transactional(readOnly=true)
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
 

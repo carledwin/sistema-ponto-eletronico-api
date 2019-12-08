@@ -6,11 +6,11 @@ import java.util.Optional;
 
 public interface FuncionarioService {
 
-    Funcionario save(Funcionario funcionario);
+    Optional<Funcionario> save(Funcionario funcionario);
 
-    Funcionario findByCpf(String cpf);
+    Optional<Funcionario> findByCpf(String cpf);
 
-    Funcionario findByEmail(String email);
+    Optional<Funcionario> findByEmail(String email);
 
-    Funcionario findById(Long id);
+    Optional<Funcionario> findById(Long id);
 }

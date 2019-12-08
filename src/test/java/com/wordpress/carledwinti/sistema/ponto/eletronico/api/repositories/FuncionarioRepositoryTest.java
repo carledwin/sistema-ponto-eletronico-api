@@ -14,6 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
@@ -73,7 +75,7 @@ public class FuncionarioRepositoryTest {
 
     @Test
     public void findFuncionarioByCpf(){
-        Funcionario funcionario = this.funcionarioRepository.findByEmail(EMAIL);
+        Funcionario funcionario = this.funcionarioRepository.findByCpf(CPF);
         Assert.assertEquals(CPF, funcionario.getCpf());
     }
 

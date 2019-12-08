@@ -17,31 +17,31 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     private FuncionarioRepository funcionarioRepository;
 
     @Override
-    public Funcionario save(Funcionario funcionario) {
+    public Optional<Funcionario> save(Funcionario funcionario) {
 
         LOG.info("Save funcionario: {}", funcionario);
-        return funcionarioRepository.save(funcionario);
+        return Optional.ofNullable(funcionarioRepository.save(funcionario));
     }
 
     @Override
-    public Funcionario findByCpf(String cpf) {
+    public Optional<Funcionario> findByCpf(String cpf) {
 
         LOG.info("Find funcionario by cpf: {}", cpf);
-        return funcionarioRepository.findByCpf(cpf);
+        return Optional.ofNullable(funcionarioRepository.findByCpf(cpf));
     }
 
     @Override
-    public Funcionario findByEmail(String email) {
+    public Optional<Funcionario> findByEmail(String email) {
 
         LOG.info("Find funcionario by email: {}", email);
-        return funcionarioRepository.findByEmail(email);
+        return Optional.ofNullable(funcionarioRepository.findByEmail(email));
     }
 
     @Override
-    public Funcionario findById(Long id) {
+    public Optional<Funcionario> findById(Long id) {
 
         LOG.info("Find funcionario by id: {}", id);
 
-        return funcionarioRepository.findOne(id);
+        return Optional.ofNullable(funcionarioRepository.findOne(id));
     }
 }
