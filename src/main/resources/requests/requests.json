@@ -32,3 +32,10 @@ Body:
 "valorHora":"50",
 "cnpj":"06028939000140"
 }
+
+-------------- Consulta Empresas
+GET - http://localhost:8080/empresas/cnpj/06028939000140
+
+Headers:
+Authorization : Basic dXNlcjo0MGEwMTliNi1jN2RjLTQzNTktYmY2YS1jOWY3M2E5YzJhNTY=
+
