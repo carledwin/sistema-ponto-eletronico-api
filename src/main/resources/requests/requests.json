@@ -1,3 +1,4 @@
+-------------- Cadastro de Empresa
 POST - http://localhost:8080/cadastro-pj
 
 Headers:
@@ -11,5 +12,23 @@ Body:
 "cpf":"83069968015",
 "senha":"Senha@123",
 "razaoSocial":"Carl Edwin TI",
+"cnpj":"06028939000140"
+}
+
+
+-------------- Cadastro de Funcionario
+POST - http://localhost:8080/cadastro-pf
+
+Headers:
+Content-Type : application/json
+Authorization : Basic dXNlcjo0MGEwMTliNi1jN2RjLTQzNTktYmY2YS1jOWY3M2E5YzJhNTY=
+
+Body:
+{
+"nome":"Paulo Cezar",
+"email":"paulo.cezar@carledwinti.com",
+"cpf":"13947747020",
+"senha":"Senha@123",
+"valorHora":"50",
 "cnpj":"06028939000140"
 }
