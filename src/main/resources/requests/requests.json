@@ -54,3 +54,51 @@ Body:
 "senha":"Senha@1234",
 "valorHora":"72"
 }
+
+-------------- Cadastro Lancamento
+POST - http://localhost:8080/lancamentos
+
+Headers:
+Content-Type : application/json
+
+Body:
+{
+"data":"2019-12-08 21:05:01",
+"tipo":"INICIO_TRABALHO",
+"descricao":"Início do Trabalho",
+"localizacao":"-23.561119, -46.655807",
+"funcionarioId":"2"
+}
+
+-------------- Atualizacao Lancamento
+PUT - http://localhost:8080/lancamentos/2
+
+Headers:
+Content-Type : application/json
+
+Body:
+{
+"data":"2019-12-08 23:40:32",
+"tipo":"TERMINO_TRABALHO",
+"descricao":"Término do Trabalho",
+"localizacao":"-23.561119, -46.655807",
+"funcionarioId":"2"
+}
+
+
+-------------- Consulta Lancamento
+GET - http://localhost:8080/lancamentos/2
+
+Headers:
+Content-Type : application/json
+
+
+-------------- Consulta Lancamentos FuncionarioId com queryParam e pagina 0
+GET - http://localhost:8080/lancamentos/funcionarios/2?direction=ASC&page=0
+
+Headers:
+Content-Type : application/json
+
+
+-------------- Delete Lancamento
+DELETE - http://localhost:8080/lancamentos/1

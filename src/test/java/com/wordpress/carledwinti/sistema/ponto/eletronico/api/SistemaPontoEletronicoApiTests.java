@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
-public class SistemaPontoEletronicoApiApplicationTests {
+public class SistemaPontoEletronicoApiTests {
 
 	@Test
 	public void contextLoads() {

@@ -24,7 +24,7 @@ import java.util.Optional;
 public class FuncionarioController {
 
 
-    private static final Logger LOG = LoggerFactory.getLogger(CadastroPFController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FuncionarioController.class);
 
     @Autowired
     private FuncionarioService funcionarioService;

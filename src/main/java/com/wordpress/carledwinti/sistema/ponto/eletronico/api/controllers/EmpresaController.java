@@ -17,7 +17,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 public class EmpresaController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(CadastroPFController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(EmpresaController.class);
 
     @Autowired
     private EmpresaService empresaService;

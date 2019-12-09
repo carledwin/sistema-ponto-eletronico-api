@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LancamentoServiceImpl implements LancamentoService {
 
@@ -24,15 +26,15 @@ public class LancamentoServiceImpl implements LancamentoService {
     }
 
     @Override
-    public Lancamento findById(Long id) {
+    public Optional<Lancamento> findById(Long id) {
         LOG.info("Find by Id: {}", id);
-        return lancamentoRepository.findOne(id);
+        return Optional.ofNullable(lancamentoRepository.findOne(id));
     }
 
     @Override
-    public Lancamento save(Lancamento lancamento) {
+    public Optional<Lancamento> save(Lancamento lancamento) {
         LOG.info("Save lancamento: {}", lancamento);
-        return lancamentoRepository.save(lancamento);
+        return Optional.ofNullable(lancamentoRepository.save(lancamento));
     }
 
     @Override

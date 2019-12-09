@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -46,13 +47,13 @@ public class LancamentoServiceTest {
 
     @Test
     public void findByIdTest(){
-        Lancamento lancamento = lancamentoService.findById(1L);
-        Assert.assertNotNull(lancamento);
+        Optional<Lancamento> optionalLancamento = lancamentoService.findById(1L);
+        Assert.assertNotNull(optionalLancamento.get());
     }
 
     @Test
     public void saveTest(){
-        Lancamento lancamento = lancamentoService.save(new Lancamento());
-        Assert.assertNotNull(lancamento);
+        Optional<Lancamento> optionalLancamento = lancamentoService.save(new Lancamento());
+        Assert.assertNotNull(optionalLancamento.get());
     }
 }
