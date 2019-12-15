@@ -102,3 +102,15 @@ Content-Type : application/json
 
 -------------- Delete Lancamento
 DELETE - http://localhost:8080/lancamentos/1
+
+-------------- GET TOKEN
+POST - http://localhost:8080/auth
+
+Headers:
+Content-Type : application/json
+
+Body:
+{
+"email":"paulo.cezar@carledwinti.com",
+"password":"Senha@123"
+}
