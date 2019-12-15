@@ -112,5 +112,22 @@ Content-Type : application/json
 Body:
 {
 "email":"paulo.cezar@carledwinti.com",
-"password":"Senha@123"
+"password":"Senha@1234"
+}
+
+-------------- Cadastro de Funcionario com TOKEN ROLE_USER
+POST - http://localhost:8080/cadastro-pf
+
+Headers:
+Content-Type : application/json
+Authorization : Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYXVsby5jZXphckBjYXJsZWR3aW50aS5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiY3JlYXRlZCI6MTU3NjQyMjQyMTk0NywiZXhwIjoxNTc3MDI3MjM5fQ.JY3lX62QnBerh_awwMpvXeLcdp7Ekr6Z40ViFx3qPW_Fk4fIAaesrju8NPxhgqTVUFZg3r5JUwNRpVoPYxAfQA
+
+Body:
+{
+"nome":"Efigenania Alontre",
+"email":"alontre@carledwinti.com",
+"cpf":"97205336090",
+"senha":"Senha@456",
+"valorHora":"80",
+"cnpj":"06028939000140"
 }
