@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SistemaPontoEletronicoApi {
+public class SistemaPontoEletronicoApiRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SistemaPontoEletronicoApi.class, args);
+		SpringApplication.run(SistemaPontoEletronicoApiRunner.class, args);
 	}
 
 }

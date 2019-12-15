@@ -43,7 +43,7 @@ public class LancamentoRepositoryTest {
     private static final String INVALID_CPF = "12345678901";
     private static final String CNPJ = "32746367000145";
     private static final String RAZAO_SOCIAL = "Empresa Test";
-    private static final PerfilEnum PERFIL = PerfilEnum.ROLE_FUNC;
+    private static final PerfilEnum PERFIL = PerfilEnum.ROLE_USER;
     private static final String NOME = "Funcionario Test";
     private static final String SENHA = "Funcionario@123";
 
