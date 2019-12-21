@@ -6,19 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import com.wordpress.carledwinti.sistema.ponto.eletronico.api.enums.PerfilEnum;
 
@@ -106,6 +94,7 @@ public class Funcionario implements Serializable {
 	}
 	
 	@Enumerated(EnumType.STRING)
+	@Column(name="perfil", nullable = false)
 	public PerfilEnum getPerfilEnum() {
 		return perfilEnum;
 	}
