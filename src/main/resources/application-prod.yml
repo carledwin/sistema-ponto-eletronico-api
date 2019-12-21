@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active:
+      - dev
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        type: trace
+  datasource:
+    url: jdbc:mysql://b507811212fe34:e1037829@us-cdbr-iron-east-05.cleardb.net/heroku_1d8ce0cd12bd920?reconnect=true
+    username: root
+    password: root
+
+flyway:
+  enabled: true
+
+paginacao:
+  qtd_por_pagina: 25
+
+jwt:
+  secret: _@HRL&L3tF?Z7ccj4z&L5!nU2B!Rjs3_
+  expiration: 604800

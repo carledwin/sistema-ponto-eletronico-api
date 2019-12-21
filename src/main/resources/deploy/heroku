@@ -1,0 +1,36 @@
+git remote -V
+>> origin	https://github.com/carledwin/sistema-ponto-eletronico-api.git (fetch)
+>> origin	https://github.com/carledwin/sistema-ponto-eletronico-api.git (push)
+
+
+heroku git:remote -a sistema-ponto-eletronico-api
+
+>> heroku-cli: update available from 6.16.17-****** to 6.99.0-*****
+>>  ▸    Invalid credentials provided.
+>> Enter your Heroku credentials:
+>> Email: carl***@****.com
+>> Password: *********
+>> Two-factor code: *
+>> set git remote heroku to https://git.heroku.com/sistema-ponto-eletronico-api.git
+
+git remote -v
+>> heroku	https://git.heroku.com/sistema-ponto-eletronico-api.git (fetch)
+>> heroku	https://git.heroku.com/sistema-ponto-eletronico-api.git (push)
+>> origin	https://github.com/carledwin/sistema-ponto-eletronico-api.git (fetch)
+>> origin	https://github.com/carledwin/sistema-ponto-eletronico-api.git (push)
+
+
+Criar o banco de dados
+https://dashboard.heroku.com/apps/sistema-ponto-eletronico-api
+Tab Overview
+Configure Add-ons
+Find in Add-ons : ClearDB MySQL / Ignite-Free
+
+Acessar o client do ClearDB - cleardb-regular-09875 - clicando no icone Ignite
+https://www.cleardb.com/dashboard?source=NjNENUJGNzM2QjExNTk1QzlGNjk4RTM3QTY2RTk1OTI=&nav-data=eyJhcHBuYW1lIjoic2lzdGVtYS1wb250by1lbGV0cm9uaWNvLWFwaSIsImFkZG9uIjoiQ2xlYXJEQiBNeVNRTCBJZ25pdGUiLCJhZGRvbnMiOlt7ImN1cnJlbnQiOnRydWUsImljb24iOiJodHRwczovL2FkZG9ucy5oZXJva3UuY29tL3Byb3ZpZGVyL2FkZG9ucy9jbGVhcmRiL2ljb25zL21lbnUvcHJvY2Vzc2VkLnBuyhrbninNsdWciOiJjbGVhcmRiOml6hgreeZSIsIm5hbWUiOiJDbGVhckRCIE15U1FMIn1dfQ
+
+Recuperando a URL da base de dados
+heroku config | grep CLEARDB_DATABASE_URL
+>> ▸    heroku-cli: update available from 6.16.17-c1c6cd2 to 6.99.0-ec9edad
+>> CLEARDB_DATABASE_URL: mysql://b507811212fe34:e1037829@us-cdbr-iron-east-05.cleardb.net/heroku_1d8ce0cd12bd920?reconnect=true
+
