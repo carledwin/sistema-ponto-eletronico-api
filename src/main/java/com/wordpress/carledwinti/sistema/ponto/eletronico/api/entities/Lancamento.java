@@ -3,18 +3,7 @@ package com.wordpress.carledwinti.sistema.ponto.eletronico.api.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.wordpress.carledwinti.sistema.ponto.eletronico.api.enums.LancamentoEnum;
 
@@ -72,6 +61,7 @@ public class Lancamento implements Serializable {
 	}
 	
 	@Enumerated(EnumType.STRING)
+	@Column(name = "tipo")
 	public LancamentoEnum getLancamentoEnum() {
 		return lancamentoEnum;
 	}
