@@ -138,3 +138,8 @@ Body:
 Swagger script json - http://localhost:8080/v2/api-docs
 
 Swagger UI - http://localhost:8080/swagger-ui.html
+
+************************************* Heroku
+https://sistema-ponto-eletronico-api.herokuapp.com
+
+Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBjYXJsZWR3aW50aS53b3JkcHJlc3MuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJjcmVhdGVkIjoxNTc3MDMxNjg0MTc0LCJleHAiOjE1Nzc2MzY0ODR9.egt-e2E6d3jA8B3GX7p8g5bQztxejybDWj0QsromV2VFIRN5NDGJiohgrX8dCUZYhtRinUkPrzTd_6lAv-ybKQ
