@@ -44,7 +44,7 @@ public class SwaggerConfig {
      * 123456
      * @return
      *
-     * */
+     *
     @Bean
     public SecurityConfiguration security(){
 
@@ -67,6 +67,7 @@ public class SwaggerConfig {
                 "Authorization",
                 ",");
     }
+     * */
 
     private ApiInfo apiInfo() {
 
