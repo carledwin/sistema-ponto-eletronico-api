@@ -1,5 +1,6 @@
 package com.wordpress.carledwinti.sistema.ponto.eletronico.api.security.controllers;
 
+import com.wordpress.carledwinti.sistema.ponto.eletronico.api.entities.Funcionario;
 import com.wordpress.carledwinti.sistema.ponto.eletronico.api.responses.Response;
 import com.wordpress.carledwinti.sistema.ponto.eletronico.api.security.dtos.JwtAuthenticationDto;
 import com.wordpress.carledwinti.sistema.ponto.eletronico.api.security.dtos.TokenDto;
@@ -9,6 +10,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.wordpress.carledwinti.sistema.ponto.eletronico.api.services.FuncionarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,9 @@ public class AuthenticationController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private FuncionarioService funcionarioService;
+
     /**
      * Gera e retorna um novo token JWT.
      *
@@ -71,7 +76,18 @@ public class AuthenticationController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationDto.getEmail());
-        String token = jwtTokenUtil.getToken(userDetails);
+
+        Optional<Funcionario>  optionalFuncionario = funcionarioService.findByEmail(authenticationDto.getEmail());
+
+        if(!optionalFuncionario.isPresent()){
+
+            String errorMessage = "Falha ao tentar recuperar dados do funcionario";
+            log.error(errorMessage);
+            response.getErrors().add(errorMessage);
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        String token = jwtTokenUtil.getToken(userDetails, optionalFuncionario.get());
         response.setData(new TokenDto(token));
 
         return ResponseEntity.ok(response);

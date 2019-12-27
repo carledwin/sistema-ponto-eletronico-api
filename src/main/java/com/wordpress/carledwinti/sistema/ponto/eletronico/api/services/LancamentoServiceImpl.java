@@ -28,6 +28,12 @@ public class LancamentoServiceImpl implements LancamentoService {
     }
 
     @Override
+    public Optional<Lancamento> findByFuncionarioIdDataCriacaoDesc(Long funcionarioId) {
+        LOG.info("Find by funcionarioId Order by DataCriacao Desc: {}", funcionarioId);
+        return Optional.ofNullable(lancamentoRepository.findTop1ByFuncionarioIdOrderByDataCriacaoDesc(funcionarioId));
+    }
+
+    @Override
     @Cacheable("lancamentoPorId")
     public Optional<Lancamento> findById(Long id) {
         LOG.info("Find by Id: {}", id);

@@ -67,6 +67,25 @@ public class LancamentoController {
         return ResponseEntity.ok(responsePageLancamentoDto);
     }
 
+    @GetMapping("/funcionarios/{funcionarioId}/ultimo")
+    public ResponseEntity<Response<LancamentoDto>> findByFuncionarioIdUltimoLancamento(@PathVariable("funcionarioId") Long funcionarioId){
+
+        LOG.info("Find Lancamentos By funcionarioId: {}", funcionarioId);
+
+        Response<LancamentoDto> responseLancamentoDto = new Response<>();
+
+        Optional<Lancamento> optionalLancamento = lancamentoService.findByFuncionarioIdDataCriacaoDesc(funcionarioId);
+
+        if(!optionalLancamento.isPresent()){
+            responseLancamentoDto.getErrors().add("Ultimo lancamento nao encontrado para o funcionarioId: " + funcionarioId);
+            return ResponseEntity.badRequest().body(responseLancamentoDto);
+        }
+
+        responseLancamentoDto.setData(converterLancamentoToLancamentoDto(optionalLancamento.get()));
+
+        return ResponseEntity.ok(responseLancamentoDto);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Response<LancamentoDto>> findById(@PathVariable("id") Long id){
 

@@ -10,6 +10,8 @@ public interface LancamentoService {
 
     Page<Lancamento> findByFuncionarioId(Long funcionarioId, PageRequest pageRequest);
 
+    Optional<Lancamento> findByFuncionarioIdDataCriacaoDesc(Long funcionarioId);
+
     Optional<Lancamento> findById(Long id);
 
     Optional<Lancamento> save(Lancamento lancamento);

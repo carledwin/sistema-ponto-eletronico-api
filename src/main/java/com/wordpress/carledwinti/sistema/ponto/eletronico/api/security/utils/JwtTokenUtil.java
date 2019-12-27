@@ -1,5 +1,6 @@
 package com.wordpress.carledwinti.sistema.ponto.eletronico.api.security.utils;
 
+import com.wordpress.carledwinti.sistema.ponto.eletronico.api.entities.Funcionario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -15,6 +16,8 @@ import java.util.Map;
 public class JwtTokenUtil {
 
     static final String CLAIM_KEY_USERNAME = "sub";
+    static final String CLAIM_KEY_USER_ID = "id";
+    static final String CLAIM_KEY_EMPRESA_ID = "empresaId";
     static final String CLAIM_KEY_ROLE = "role";
     static final String CLAIM_KEY_AUDIENCE = "audience";
     static final String CLAIM_KEY_CREATED = "created";
@@ -72,11 +75,12 @@ public class JwtTokenUtil {
         return !isExpired(token);
     }
 
-    public String getToken(UserDetails userDetails){
+    public String getToken(UserDetails userDetails, Funcionario funcionario){
 
         Map<String, Object> claims = new HashMap<>();
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
-
+        claims.put(CLAIM_KEY_USER_ID, funcionario.getId());
+        claims.put(CLAIM_KEY_EMPRESA_ID, funcionario.getEmpresa().getId());
         userDetails.getAuthorities()
                 .forEach(authority -> claims.put(CLAIM_KEY_ROLE, authority.getAuthority()));
 
