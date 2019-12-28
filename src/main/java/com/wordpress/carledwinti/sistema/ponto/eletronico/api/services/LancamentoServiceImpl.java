@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,6 +26,12 @@ public class LancamentoServiceImpl implements LancamentoService {
     public Page<Lancamento> findByFuncionarioId(Long funcionarioId, PageRequest pageRequest) {
         LOG.info("Find by funcionarioId: {}", funcionarioId);
         return lancamentoRepository.findByFuncionarioId(funcionarioId, pageRequest);
+    }
+
+    @Override
+    public List<Lancamento> findByFuncionarioId(Long funcionarioId) {
+        LOG.info("Find by funcionarioId: {}", funcionarioId);
+        return lancamentoRepository.findByFuncionarioId(funcionarioId);
     }
 
     @Override

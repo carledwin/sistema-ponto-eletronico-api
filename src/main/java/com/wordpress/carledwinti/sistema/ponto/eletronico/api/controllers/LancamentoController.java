@@ -27,6 +27,8 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -63,6 +65,26 @@ public class LancamentoController {
         Page<LancamentoDto> pageLancamentoDto = pageLancamentos.map(lancamento -> converterLancamentoToLancamentoDto(lancamento));
 
         responsePageLancamentoDto.setData(pageLancamentoDto);
+
+        return ResponseEntity.ok(responsePageLancamentoDto);
+    }
+
+    @GetMapping("/funcionarios/{funcionarioId}/todos")
+    public ResponseEntity<Response<List<LancamentoDto>>> findByFuncionarioIdTodos(@PathVariable("funcionarioId") Long funcionarioId){
+
+        LOG.info("Find Lancamentos By funcionarioId: {}", funcionarioId);
+
+        Response<List<LancamentoDto>> responsePageLancamentoDto = new Response<>();
+
+        List<Lancamento> lancamentos = lancamentoService.findByFuncionarioId(funcionarioId);
+
+        List<LancamentoDto> lancamentosDto = new ArrayList<>();
+
+        for (Lancamento lancamento : lancamentos){
+            lancamentosDto.add(converterLancamentoToLancamentoDto(lancamento));
+        }
+
+        responsePageLancamentoDto.setData(lancamentosDto);
 
         return ResponseEntity.ok(responsePageLancamentoDto);
     }

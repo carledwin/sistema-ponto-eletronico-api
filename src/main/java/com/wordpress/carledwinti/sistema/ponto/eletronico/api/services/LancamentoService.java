@@ -4,9 +4,12 @@ import com.wordpress.carledwinti.sistema.ponto.eletronico.api.entities.Lancament
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface LancamentoService {
+
+    List<Lancamento> findByFuncionarioId(Long funcionarioId);
 
     Page<Lancamento> findByFuncionarioId(Long funcionarioId, PageRequest pageRequest);
 
