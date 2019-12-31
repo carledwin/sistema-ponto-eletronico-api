@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +29,13 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
         LOG.info("Find funcionario by cpf: {}", cpf);
         return Optional.ofNullable(funcionarioRepository.findByCpf(cpf));
+    }
+
+    @Override
+    public Optional<List<Funcionario>> findByEmpresaId(Long id) {
+
+        LOG.info("Find funcionario by empresaId: {}", id);
+        return Optional.ofNullable(funcionarioRepository.findByEmpresaId(id));
     }
 
     @Override

@@ -34,7 +34,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         String token = request.getHeader(AUTHORIZATION_HEADER);
 
-        Enumeration<String> headers = request.getHeaders(AUTHORIZATION_HEADER);
+            Enumeration<String> headers = request.getHeaders(AUTHORIZATION_HEADER);
 
         Map<String, String> map = new HashMap<>();
 

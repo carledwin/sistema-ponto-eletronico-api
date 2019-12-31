@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -57,6 +59,26 @@ public class FuncionarioController {
         responseFuncionarioDto.setData(converterFuncionarioToFuncionarioDto(optionalFuncionario.get()));
 
         return ResponseEntity.ok(responseFuncionarioDto);
+    }
+
+    @GetMapping("/empresa/{empresaId}")
+    public ResponseEntity<Response<List<FuncionarioDto>>> findByEmpresaId(@PathVariable("empresaId") Long empresaId){
+
+        Response<List<FuncionarioDto>> responseFuncionariosDto = new Response<>();
+        List<FuncionarioDto> listFuncionarioDto = new ArrayList<>();
+
+        Optional<List<Funcionario>> optionalFuncionarios = funcionarioService.findByEmpresaId(empresaId);
+
+        if (optionalFuncionarios.isPresent()){
+            optionalFuncionarios.get().forEach(
+                funcionario -> {
+                    listFuncionarioDto.add(converterFuncionarioToFuncionarioDto(funcionario));
+                });
+        }
+
+        responseFuncionariosDto.setData(listFuncionarioDto);
+
+        return ResponseEntity.ok(responseFuncionariosDto);
     }
 
     private FuncionarioDto converterFuncionarioToFuncionarioDto(Funcionario funcionario) {
